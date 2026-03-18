@@ -1,0 +1,29 @@
+{% extends 'cursos/base.html' %}
+
+{% block title %}Acerca de - Mi LMS{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="section-title">Acerca de Nosotros</h1>
+    
+    <div style="background: white; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+        <h2 style="color: #0052cc;">🎯 Nuestra Misión</h2>
+        <p style="font-size: 1.2rem; margin-top: 1rem;">
+            {{ mision }}
+        </p>
+
+        <h2 style="color: #0052cc; margin-top: 2rem;">🔭 Nuestra Visión</h2>
+        <p style="font-size: 1.2rem; margin-top: 1rem;">
+            {{ vision }}
+        </p>
+
+        <h2 style="color: #0052cc; margin-top: 2rem;">💡 Nuestros Valores</h2>
+        <ul style="font-size: 1.1rem; margin-top: 1rem;">
+            <li>Excelencia en la educación</li>
+            <li>Innovación constante</li>
+            <li>Accesibilidad para todos</li>
+            <li>Comunidad de aprendizaje</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

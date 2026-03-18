@@ -1,0 +1,58 @@
+{% extends 'cursos/base.html' %}
+{% load static %}
+
+{% block title %}Inicio - Mi LMS{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Bienvenido a Mi LMS 🎓</h1>
+        <p>Aprende las tecnologías más demandadas del mercado</p>
+        <a href="{% url 'cursos:lista_cursos' %}" class="btn">Explorar Cursos</a>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="icon">📚</div>
+            <h3>{{ total_cursos }}</h3>
+            <p>Cursos disponibles</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">👥</div>
+            <h3>{{ total_estudiantes }}</h3>
+            <p>Estudiantes activos</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">👨‍🏫</div>
+            <h3>{{ total_instructores }}</h3>
+            <p>Instructores expertos</p>
+        </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section>
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="icon">⏰</div>
+                <h3>Aprende a tu ritmo</h3>
+                <p>Acceso 24/7 a todo el contenido</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🏆</div>
+                <h3>Certificados</h3>
+                <p>Obtén certificados al completar cursos</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">💼</div>
+                <h3>Proyectos reales</h3>
+                <p>Construye tu portafolio profesional</p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

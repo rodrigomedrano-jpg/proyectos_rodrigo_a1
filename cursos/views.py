@@ -116,3 +116,10 @@ def acerca(request):
         'vision': 'Ser la plataforma líder en educación en línea',
     }
     return render(request, 'cursos/acerca.html', contexto)
+
+def prueba(request):
+    contexto = {
+        'nombre': 'Rodrigo',
+        'biografia': 'ESTE ES UN EJEMPLO LARGO PARA MOSTRAR TEXTO Y CORTAR EN LA EJECUCIÓN DE MI TEMPLATE',
+    }
+    return render(request, 'cursos/prueba.html', contexto)

@@ -7,11 +7,28 @@
     <h1>Pagina de Prueba</h1>
     <p>Hola, {{ nombre | lower}}</p>
     <p>{{ biografia | truncatechars:30 }}</p>
-    <p>{{edad}}</p>
+    <p>
+      {% if edad >= 18 and es_premium %}
+        Edad: {{edad}}. Eres mayor de edad y usuario premium
+      {% elif edad >= 18 %}
+        Edad: {{edad}}. Eres mayor de edad pero no un usuario premium
+      {% elif es_premium %}
+        Edad: {{edad}}. Eres menor de edad y usuario premium
+      {% else %}
+        Edad: {{edad}}. Eres menor de edad 
+      {% endif %}
+    </p>
     <p>{{es_premium}}</p>
     <p>{{fecha_registro}}</p>
-    <p>{{habilidades}}</p>
-    <p>{{seguidores}}</p>
-    <p>{{web_personal}}</p>
+    <ul>
+      {% for habilidad in habilidades %}
+        <li {% if habilidad == 'Django' %}style="color: green"{% endif %}>{{forloop.counter0}}. {{ habilidad }}</li>
+      {% empty %}
+        <li>No hay habilidades registradas.</li>
+      {% endfor %}
+    </ul>
+    <p>{{seguidores| add:1}}</p>
+    <p>{{nombre| length}}</p>
+    <p>{{web_personal| default:"No hay una web personal registrada"}}</p>
   </div>
 {% endblock %}

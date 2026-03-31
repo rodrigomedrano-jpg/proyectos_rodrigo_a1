@@ -124,7 +124,7 @@ def prueba(request):
         'biografia': 'ESTE ES UN EJEMPLO LARGO PARA MOSTRAR TEXTO Y CORTAR EN LA EJECUCIÓN DE MI TEMPLATE',
         'edad': 17,
         'es_premium': True,
-        'habilidades': ['Python', 'Django', 'HTML', 'CSS', 'JavaScript'],
+        'habilidades': [],
         'fecha_registro': datetime.now(),
         'seguidores': 1520,
         'web_personal': None

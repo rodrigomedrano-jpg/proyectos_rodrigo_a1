@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from datetime import datetime
 
 # Create your views here.
 # Vista de inicio
@@ -121,5 +122,11 @@ def prueba(request):
     contexto = {
         'nombre': 'Rodrigo',
         'biografia': 'ESTE ES UN EJEMPLO LARGO PARA MOSTRAR TEXTO Y CORTAR EN LA EJECUCIÓN DE MI TEMPLATE',
+        'edad': 17,
+        'es_premium': True,
+        'habilidades': ['Python', 'Django', 'HTML', 'CSS', 'JavaScript'],
+        'fecha_registro': datetime.now(),
+        'seguidores': 1520,
+        'web_personal': None
     }
     return render(request, 'cursos/prueba.html', contexto)

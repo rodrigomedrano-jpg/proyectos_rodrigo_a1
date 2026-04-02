@@ -31,4 +31,12 @@
     <p>{{nombre| length}}</p>
     <p>{{web_personal| default:"No hay una web personal registrada"}}</p>
   </div>
+  <div class="container">
+    <form action="{% url 'cursos:prueba' %}" method="post">
+      {% csrf_token %}
+      Nombre: <input type="text" name="nombre"><br>
+      Edad: <input type="number" name="edad" id="edad"><br>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
 {% endblock %}

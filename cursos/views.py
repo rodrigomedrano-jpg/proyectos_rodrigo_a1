@@ -129,4 +129,10 @@ def prueba(request):
         'seguidores': 1520,
         'web_personal': None
     }
+    if request.method=="POST":
+        nombre = request.POST.get('nombre')
+        contexto['nombre'] = nombre
+        edad = request.POST.get('edad')
+        contexto['edad'] = int(edad)
+        contexto['es_premium']= False
     return render(request, 'cursos/prueba.html', contexto)

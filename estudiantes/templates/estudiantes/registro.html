@@ -47,6 +47,7 @@
         input[type="text"],
         input[type="email"],
         input[type="number"],
+        input[type="tel"],
         select {
             width: 100%;
             padding: 12px;
@@ -164,6 +165,12 @@
                     <option value="marketing"{% if datos.carrera == 'marketing' %} selected {% endif %} >Marketing Digital</option>
                     <option value="datos"{% if datos.carrera == 'datos' %} selected {% endif %}>Ciencia de Datos</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de telefono:</label>
+                <input type="tel" name="telefono" id="telefono" value="{{datos.telefono|default:'0'}}"
+                {% if datos.telefono == '7123456' %}
+                style="color:red"{% endif %} >
             </div>
             <button type="submit">✨ Inscribirme</button>
         </form>

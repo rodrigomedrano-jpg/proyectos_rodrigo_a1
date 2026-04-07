@@ -58,8 +58,12 @@ def registro(request):
         request.session.modified = True
             
         return redirect('estudiantes:lista')
-    
-    return render(request, 'estudiantes/registro.html')
+    contexto={
+        'datos': {
+            'telefono': '7123457'
+        }
+    }
+    return render(request, 'estudiantes/registro.html', contexto)
 
 def lista(request):
     

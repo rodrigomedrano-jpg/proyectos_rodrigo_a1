@@ -129,7 +129,7 @@
         </div>
         {% endif %}
 
-        <form method="post">
+        <form action="{% url 'estudiantes:registro' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="nombre">
@@ -159,10 +159,10 @@
                 <label for="carrera">Carrera de Interés <span class="required">*</span></label>
                 <select name="carrera" id="carrera" required>
                     <option value="">Selecciona una carrera</option>
-                    <option value="programacion">Programación</option>
-                    <option value="diseno">Diseño Gráfico</option>
-                    <option value="marketing">Marketing Digital</option>
-                    <option value="datos">Ciencia de Datos</option>
+                    <option value="programacion" {% if datos.carrera == 'programacion' %} selected {% endif %}>Programación</option>
+                    <option value="diseno" {% if datos.carrera == 'diseno' %} selected {% endif %}>Diseño Gráfico</option>
+                    <option value="marketing"{% if datos.carrera == 'marketing' %} selected {% endif %} >Marketing Digital</option>
+                    <option value="datos"{% if datos.carrera == 'datos' %} selected {% endif %}>Ciencia de Datos</option>
                 </select>
             </div>
             <button type="submit">✨ Inscribirme</button>

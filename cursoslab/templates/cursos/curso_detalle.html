@@ -1,0 +1,34 @@
+{% extends 'cursos/base.html' %}
+{% load static %}
+
+{% block title %}{{ curso.titulo }} - Mi LMS{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="curso-detalle">
+        <div class="curso-header">
+            <div>
+                <h1 class="section-title">{{ curso.titulo }}</h1>
+                <p class="instructor">👨‍🏫 Instructor: <strong>{{ curso.instructor }}</strong></p>
+                <p>⏱️ Duración: <strong>{{ curso.duracion }}</strong></p>
+                <p style="margin-top: 1rem;">{{ curso.descripcion }}</p>
+                <button class="btn" style="margin-top: 2rem;">Inscribirse Ahora</button>
+            </div>
+            <div>
+                <img src="{% static curso.imagen %}" alt="{{ curso.titulo }}">
+            </div>
+        </div>
+
+        <h2 style="color: #0052cc; margin-top: 2rem;">📋 Contenido del Curso</h2>
+        <ul class="modulos-list">
+            {% for modulo in curso.modulos %}
+            <li>{{ forloop.counter }}. {{ modulo }}</li>
+            {% endfor %}
+        </ul>
+
+        <div style="margin-top: 2rem;">
+            <a href="{% url 'cursos:lista_cursos' %}" class="btn">← Volver a Cursos</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

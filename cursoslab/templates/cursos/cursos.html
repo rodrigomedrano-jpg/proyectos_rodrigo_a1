@@ -1,0 +1,26 @@
+{% extends 'cursos/base.html' %}
+{% load static %}
+
+{% block title %}Cursos - Mi LMS{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="section-title">Nuestros Cursos</h1>
+    <p>Tenemos {{ total }} cursos disponibles para ti</p>
+
+    <div class="cursos-grid">
+        {% for curso in cursos %}
+        <div class="curso-card">
+            <img src="{% static curso.imagen %}" alt="{{ curso.titulo }}">
+            <div class="curso-card-content">
+                <h3>{{ curso.titulo }}</h3>
+                <p class="instructor">Por {{ curso.instructor }}</p>
+                <span class="duracion">⏱️ {{ curso.duracion }}</span>
+                <p>{{ curso.descripcion }}</p>
+                <a href="{% url 'cursos:curso_detalle' curso.id %}" class="btn">Ver Detalle</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -23,13 +23,13 @@ class Categoria(models.Model):
     
     class Meta:
         verbose_name = 'Categoria'
-        verbose_name_plural = 'Categorias'
-        ordering = ['nombre']
+        verbose_name_plural = 'Categorías'
+        ordering = ['-nombre']
         
     def __str__(self):
         return self.nombre
     
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = self.nombre.replace(' ', '-').lower()
+            self.slug = slugify(self.nombre)
         super().save(*args, **kwargs)

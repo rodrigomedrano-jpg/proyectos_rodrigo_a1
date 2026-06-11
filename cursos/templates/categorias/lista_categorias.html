@@ -1,0 +1,31 @@
+{% extends 'cursos/base.html' %}
+
+{% block title %}Categorías - Mi LMS{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Categorias</h1>
+        <a href="{% url 'cursos:crear_categoria' %}">Nueva Categoria</a>
+        <table>
+            <thead>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Slug</th>
+                <th>Opciones</th>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.nombre}}</td>
+                    <td>{{ categoria.descripcion}}</td>
+                    <td>{{ categoria.slug}}</td>
+                    <td>
+                        <a href="">Editar</a>
+                        <a href="">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

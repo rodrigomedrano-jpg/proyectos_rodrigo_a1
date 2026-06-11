@@ -1,0 +1,14 @@
+{% extends 'cursos/base.html' %}
+
+{% block title %}Formulario Categoria - Mi LMS{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Formulario de Categoria</h1>
+        <form method="POST">
+            {% csrf_token%}
+            {{ form.as_p}}
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+{% endblock %}

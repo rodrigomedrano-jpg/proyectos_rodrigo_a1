@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from datetime import datetime
+from .models import Categoria
+from .forms import CategoriaForm
 
 # Create your views here.
 # Vista de inicio
@@ -136,3 +138,17 @@ def prueba(request):
         contexto['edad'] = int(edad)
         contexto['es_premium']= False
     return render(request, 'cursos/prueba.html', contexto)
+
+def lista_categorias(request):
+    categorias = Categoria.objects.all()
+    return render(request, 'categorias/lista_categorias.html', {'categorias': categorias})
+
+def crear_categoria(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cursos:lista_categorias')
+    else:
+        form = CategoriaForm()
+    return render(request, 'categorias/formulario_categoria.html', {'form':form})

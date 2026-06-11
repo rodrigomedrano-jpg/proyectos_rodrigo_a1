@@ -10,4 +10,6 @@ urlpatterns = [
     path('curso/<int:curso_id>/', views.curso_detalle, name='curso_detalle'),
     path('acerca/', views.acerca, name='acerca'),
     path('productos/', views.prueba, name='prueba'),
+    path('categorias/', views.lista_categorias, name='lista_categorias'),
+    path('categorias/nuevo/', views.crear_categoria, name='crear_categoria'),
 ]
